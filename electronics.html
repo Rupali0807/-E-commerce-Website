@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My E-Commerce Website</title>
+  <style>
+    /* Internal styling for the page */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: skyblue;
+      color: black;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      overflow: hidden;
+    }
+
+    nav a {
+      display: block;
+      float: left;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: black;
+    }
+
+    nav a:hover {
+      background-color: #ddd;
+    }
+
+    .cart-icon {
+      float: right;
+      font-size: 18px;
+      margin-right: 20px;
+    }
+
+    section {
+      margin: 20px;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 20px 0 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    li {
+      display: inline-block;
+      margin: 10px;
+    }
+
+    .product {
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      margin: 10px;
+      padding: 10px;
+      text-align: center;
+      width: 220px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+    }
+
+    .product img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .product h3 {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .product p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .product button {
+      margin: 5px;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      background-color: skyblue;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .product button:hover {
+      background-color: #007bff;
+    }
+  </style>
+  <script>
+    function addToCart(productName, productPrice, productImage) {
+      const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      cartItems.push({ name: productName, price: productPrice, image: productImage });
+      localStorage.setItem('cart', JSON.stringify(cartItems));
+      alert(productName + " has been added to your cart!");
+    }
+
+    function buyNow(productName, productPrice, productImage) {
+      addToCart(productName, productPrice, productImage);
+      window.location.href = 'cart.html';
+    }
+  </script>
+  <script>
+    function addToCart(productName, productPrice, productImage) {
+      const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      cartItems.push({ name: productName, price: productPrice, image: productImage });
+      localStorage.setItem('cart', JSON.stringify(cartItems));
+      alert(productName + " has been added to your cart!");
+    }
+
+    function buyNow(productName, productPrice, productImage) {
+      addToCart(productName, productPrice, productImage);
+      window.location.href = 'cart.html';
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>E-Commerce Website</h1>
+  </header>
+  <nav>
+    <a href="electronics.html">Electronics</a>
+    <a href="clothing.html">Clothing</a>
+    <a href="footwear.html">Footwear</a>
+    <a href="furniture.html">Furniture</a>
+    <a href="cart.html" class="cart-icon">🛒 Cart</a>
+  </nav>
+  <section>
+    <h2>Electronics</h2>
+    <ul>
+      <li class="product">
+        <img src="mob5.jpg" alt="Oppo A15S Pro 5G">
+        <h3>Oppo A15S Pro 5G</h3>
+        <p>Rs.25,999</p>
+        <button onclick="addToCart('Oppo A15S Pro 5G', 25999, 'mob5.jpg')">Add to Cart</button>
+        <button onclick="buyNow('Oppo A15S Pro 5G', 25999, 'mob5.jpg')">Buy Now</button>
+      </li>
+      <li class="product">
+        <img src="tv.jpg" alt="Sony Bravia 108 cm (43 inches) 4K Ultra HD Smart  KD-43X74K (Black)">
+        <h3>Sony Bravia 108 cm (43 inches) 4K Ultra HD Smart  KD-43X74K (Black)</h3>
+        <p>Rs.72,990</p>
+        <button onclick="addToCart('Sony Bravia 108 cm (43 inches) 4K Ultra HD Smart  KD-43X74K (Black)', 72990, 'tv.jpg')">Add to Cart</button>
+        <button onclick="buyNow('Sony Bravia 108 cm (43 inches) 4K Ultra HD Smart  KD-43X74K (Black)', 72990, 'tv.jpg')">Buy Now</button>
+      </li>
+      <li class="product">
+        <img src="watch.jpg" alt="boAt Wave Call Smart Watch">
+        <h3>boAt Wave Call Smart Watch</h3>
+        <p>Rs.1299</p>
+        <button onclick="addToCart('boAt Wave Call Smart Watch', 1299, 'watch.jpg')">Add to Cart</button>
+        <button onclick="buyNow('boAt Wave Call Smart Watch', 1299, 'watch.jpg')">Buy Now</button>
+      </li>
+      <li class="product">
+        <img src="oven.jpg" alt="Oven Toaster Grill with 5 Accessories">
+        <h3>Oven Toaster Grill with 5 Accessories</h3>
+        <p>Rs.7,190</p>
+        <button onclick="addToCart('Oven Toaster Grill with 5 Accessories', 7190, 'oven.jpg')">Add to Cart</button>
+        <button onclick="buyNow('Oven Toaster Grill with 5 Accessories', 7190, 'oven.jpg')">Buy Now</button>
+      </li>
+      <li class="product">
+        <img src="refri.webp" alt="LG 242 L 3 Star Smart Double Door Refrigerator">
+        <h3>LG 242 L 3 Star Smart Double Door Refrigerator</h3>
+        <p>Rs.25,990</p>
+        <button onclick="addToCart('LG 242 L 3 Star Smart Double Door Refrigerator', 25990, 'refri.webp')">Add to Cart</button>
+        <button onclick="buyNow('LG 242 L 3 Star Smart Double Door Refrigerator', 25990, 'refri.webp')">Buy Now</button>
+      </li>
+      <li class="product">
+        <img src="headphone.jpg" alt="boAt Rockerz 450 Bluetooth Ear Headphones">
+        <h3>boAt Rockerz 450 Bluetooth Ear Headphones</h3>
+        <p>Rs.1498</p>
+        <button onclick="addToCart('boAt Rockerz 450 Bluetooth Ear Headphones', 1498, 'headphone.jpg')">Add to Cart</button>
+        <button onclick="buyNow('boAt Rockerz 450 Bluetooth Ear Headphones', 1498, 'headphone.jpg')">Buy Now</button>
+      </li>
+    </ul> 
+  </section>         
+</body>
+</html>

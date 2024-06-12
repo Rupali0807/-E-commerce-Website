@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My E-Commerce Website</title>
+  <style>
+    /* Internal styling for the page */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: skyblue;
+      color: black;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      overflow: hidden;
+    }
+
+    nav a {
+      display: block;
+      float: left;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: black;
+    }
+
+    nav a:hover {
+      background-color: #ddd;
+    }
+
+    .cart-icon {
+      float: right;
+      font-size: 18px;
+      margin-right: 20px;
+    }
+
+    section {
+      margin: 20px;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 20px 0 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    li {
+      display: inline-block;
+      margin: 10px;
+    }
+
+    .product {
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      margin: 10px;
+      padding: 10px;
+      text-align: center;
+      width: 220px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+    }
+
+    .product img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .product h3 {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .product p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .product button {
+      margin: 5px;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      background-color: skyblue;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .product button:hover {
+      background-color: #007bff;
+    }
+  </style>
+  <script>
+    function addToCart(productName, productPrice, productImage) {
+      const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      cartItems.push({ name: productName, price: productPrice, image: productImage });
+      localStorage.setItem('cart', JSON.stringify(cartItems));
+      alert(productName + " has been added to your cart!");
+    }
+
+    function buyNow(productName, productPrice, productImage) {
+      addToCart(productName, productPrice, productImage);
+      window.location.href = 'cart.html';
+    }
+  </script>
+  <script>
+    function addToCart(productName, productPrice, productImage) {
+      const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      cartItems.push({ name: productName, price: productPrice, image: productImage });
+      localStorage.setItem('cart', JSON.stringify(cartItems));
+      alert(productName + " has been added to your cart!");
+    }
+
+    function buyNow(productName, productPrice, productImage) {
+      addToCart(productName, productPrice, productImage);
+      window.location.href = 'cart.html';
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>E-Commerce Website</h1>
+  </header>
+  <nav>
+    <a href="electronics.html">Electronics</a>
+    <a href="clothing.html">Clothing</a>
+    <a href="footwear.html">Footwear</a>
+    <a href="furniture.html">Furniture</a>
+    <a href="cart.html" class="cart-icon">🛒 Cart</a>
+  </nav>
+  <section>
+    <h2>Clothing</h2>
+    <ul>
+      <li class="product">
+        <img src="cloth1.jpg" alt="Product 1">
+        <h3>Lymio Casual Shirt for Men</h3>
+        <p>Rs.348</p>
+        <button onclick="addToCart('Lymio Casual Shirt for Men', 348, 'cloth1.jpg')">Add to Cart</button>
+        <button onclick="buyNow('Lymio Casual Shirt for Men', 348, 'cloth1.jpg')">Buy Now</button>
+      </li>
+
+      <li class="product">
+        <img src="cloth2.jpg" alt="Product 2">
+        <h3>Majestic Man Solid Cotton Formal Shirt</h3>         
+        <p>Rs.383</p>
+        <button onclick="addToCart('Majestic Man Solid Cotton Formal Shirt',383,'cloth2.jpg')">Add to Cart</button>
+        <button onclick="buyNow('Majestic Man Solid Cotton Formal Shirt',383,'cloth2.jpg')">Buy Now</button>
+      </li>
+
+      <li class="product">
+        <img src="cloth3.jpg" alt="Product 3">
+        <h3>Women's Casual Puff Sleeves Foral Top</h3>         
+        <p>Rs.279</p>
+        <button onclick="addToCart('Womens Casual Puff Sleeves Foral Top',279,'cloth3.jpg')">Add to Cart</button>
+        <button onclick="buyNow('Womens Casual Puff Sleeves Foral Top',279,'cloth3.jpg')">Buy Now</button>
+      </li>
+
+      <li class="product">
+        <img src="cloth4.jpg" alt="Product 3">
+        <h3>Wish Karo Baby Girls Frocks Dress ,(Purple color)</h3>        
+        <p>Rs.449</p>
+        <button onclick="addToCart('Wish Karo Baby Girls Frocks Dress ,(Purple color)',449,'cloth4.jpg')">Add to Cart</button>
+        <button onclick="buyNow('Wish Karo Baby Girls Frocks Dress ,(Purple color)',449,'cloth4.jpg')">Buy Now</button>
+      </li>
+
+    <li class="product">
+        <img src="cloth5.jpg" alt="Product 3">
+        <h3>Majestic Man Cotton Solid Casual Short Kurta for Men</h3>
+        <p>RS.399</p>
+        <button onclick="addToCart('Majestic Man Cotton Solid Casual Short Kurta for Men',399,'cloth5.jpg')">Add to Cart</button>
+        <button onclick="buyNow('Majestic Man Cotton Solid Casual Short Kurta for Men',399,'cloth5.jpg')">Buy Now</button>
+      </li>
+
+   <li class="product">
+        <img src="cloth6.jpg" alt="Product 3">
+        <h3>Scott International Men's Regular Fit T-Shirt (Pack of 3)</h3>          
+        <p>Rs.399</p>
+        <button onclick="addToCart('Scott International Mens Regular Fit T-Shirt (Pack of 3)',399,'cloth6.jpg')">Add to Cart</button>
+        <button onclick="buyNow('Scott International Mens Regular Fit T-Shirt (Pack of 3)',399,'cloth6.jpg')">Buy Now</button>
+      </li>
+    </ul>     
+  </section>         
+</body>
+</html>
+

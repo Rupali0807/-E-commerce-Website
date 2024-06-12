@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My E-Commerce Website</title>
+  <style>
+    /* Internal styling for the page */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: skyblue;
+      color: black;
+      padding: 20px;
+      text-align: center;
+    }
+
+    nav {
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      overflow: hidden;
+    }
+
+    nav a {
+      display: block;
+      float: left;
+      font-size: 18px;
+      font-weight: bold;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      color: black;
+    }
+
+    nav a:hover {
+      background-color: #ddd;
+    }
+
+    .cart-icon {
+      float: right;
+      font-size: 18px;
+      margin-right: 20px;
+    }
+
+    section {
+      margin: 20px;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 20px 0 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    li {
+      display: inline-block;
+      margin: 10px;
+    }
+
+    .product {
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      margin: 10px;
+      padding: 10px;
+      text-align: center;
+      width: 220px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+    }
+
+    .product img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .product h3 {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+
+    .product p {
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    .product button {
+      margin: 5px;
+      padding: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      background-color: skyblue;
+      color: white;
+      border-radius: 5px;
+    }
+
+    .product button:hover {
+      background-color: #007bff;
+    }
+  </style>
+  <script>
+    function addToCart(productName, productPrice, productImage) {
+      const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      cartItems.push({ name: productName, price: productPrice, image: productImage });
+      localStorage.setItem('cart', JSON.stringify(cartItems));
+      alert(productName + " has been added to your cart!");
+    }
+
+    function buyNow(productName, productPrice, productImage) {
+      addToCart(productName, productPrice, productImage);
+      window.location.href = 'cart.html';
+    }
+  </script>
+</head>
+<body>
+  <header>
+    <h1>E-Commerce Website</h1>
+  </header>
+  <nav>
+    <a href="electronics.html">Electronics</a>
+    <a href="clothing.html">Clothing</a>
+    <a href="footwear.html">Footwear</a>
+    <a href="furniture.html">Furniture</a>
+    <a href="cart.html" class="cart-icon">🛒 Cart</a>
+  </nav>
+  <section>
+    <h2>Furniture</h2>
+    <ul>
+      <li class="product">
+        <img src="f1.jpg" alt="2 Pack Bathroom Organizer">
+        <h3>2 Pack Bathroom Organizer</h3>
+        <p>Rs. 397</p>
+        <button onclick="addToCart('2 Pack Bathroom Organizer', 397, 'f1.jpg')">Add to Cart</button>
+        <button onclick="buyNow('2 Pack Bathroom Organizer', 397, 'f1.jpg')">Buy Now</button>
+      </li>
+      <li class="product">
+        <img src="f2.jpg" alt="Solimo King Bed with Storage">
+        <h3>Solimo King Bed with Storage</h3>
+        <p>Rs. 14,999</p>
+        <button onclick="addToCart('Solimo King Bed with Storage', 14999, 'f2.jpg')">Add to Cart</button>
+        <button onclick="buyNow('Solimo King Bed with Storage', 14999, 'f2.jpg')">Buy Now</button>
+      </li>
+      <li class="product">
+        <img src="f3.jpg" alt="Mid-Back Ergonomic Office Chair">
+        <h3>Mid-Back Ergonomic Office Chair</h3>
+        <p>Rs. 3,789</p>
+        <button onclick="addToCart('Mid-Back Ergonomic Office Chair', 3789, 'f3.jpg')">Add to Cart</button>
+        <button onclick="buyNow('Mid-Back Ergonomic Office Chair', 3789, 'f3.jpg')">Buy Now</button>
+      </li>
+      <li class="product">
+        <img src="f4.jpg" alt="Engineered Wood Study Table">
+        <h3>Engineered Wood Study Table</h3>
+        <p>Rs. 4,404</p>
+        <button onclick="addToCart('Engineered Wood Study Table', 4404, 'f4.jpg')">Add to Cart</button>
+        <button onclick="buyNow('Engineered Wood Study Table', 4404, 'f4.jpg')">Buy Now</button>
+      </li>
+      <li class="product">
+        <img src="f5.webp" alt="Solimo Leatherette 3 Seater Sofa">
+        <h3>Solimo Leatherette 3 Seater Sofa</h3>
+        <p>Rs. 15,999</p>
+        <button onclick="addToCart('Solimo Leatherette 3 Seater Sofa', 15999, 'f5.webp')">Add to Cart</button>
+        <button onclick="buyNow('Solimo Leatherette 3 Seater Sofa', 15999, 'f5.webp')">Buy Now</button>
+      </li>
+      <li class="product">
+        <img src="f6.webp" alt="Solid Wood 4-Seater Dining Table">
+        <h3>Solid Wood 4-Seater Dining Table</h3>
+        <p>Rs. 26,099</p>
+        <button onclick="addToCart('Solid Wood 4-Seater Dining Table', 26099, 'f6.webp')">Add to Cart</button>
+        <button onclick="buyNow('Solid Wood 4-Seater Dining Table', 26099, 'f6.webp')">Buy Now</button>
+      </li>
+    </ul>
+  </section>
+</body>
+</html>

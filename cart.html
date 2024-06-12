@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Shopping Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: skyblue;
+      color: black;
+      padding: 10px;
+      text-align: center;
+    }
+
+    section {
+      margin: 20px;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: bold;
+      margin: 20px 0 10px;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    li {
+      margin: 10px;
+      border: 1px solid #ccc;
+      padding: 10px;
+      background-color: #f9f9f9;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: 200px; /* Adjust width as needed */
+    }
+
+    .cart-item img {
+      max-width: 100px;
+      margin-bottom: 10px;
+    }
+
+    .cart-item h3 {
+      margin: 0;
+      font-size: 20px;
+      text-align: center;
+    }
+
+    .cart-item p {
+      margin: 5px 0;
+      text-align: center;
+    }
+
+    .remove-button {
+      padding: 5px 10px;
+      background-color: red;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>E-Commerce Website</h1>
+  </header>
+  <section>
+    <h2>Your Cart</h2>
+    <ul id="cartItems">
+      <li>No items in the cart.</li>
+    </ul>
+  </section>
+  <script>
+    function loadCartItems() {
+      const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      const cartItemsContainer = document.getElementById('cartItems');
+
+      cartItemsContainer.innerHTML = '';
+      if (cartItems.length === 0) {
+        cartItemsContainer.innerHTML = '<li>No items in the cart.</li>';
+      } else {
+        cartItems.forEach((item, index) => {
+          const listItem = document.createElement('li');
+          listItem.classList.add('cart-item');
+
+          listItem.innerHTML = `
+            <img src="${item.image}" alt="${item.name}">
+            <div>
+              <h3>${item.name}</h3>
+              <p>Price: Rs.${item.price}</p>
+            </div>
+            <button class="remove-button" onclick="removeFromCart(${index})">Remove</button>
+          `;
+          cartItemsContainer.appendChild(listItem);
+        });
+      }
+    }
+
+    function removeFromCart(itemIndex) {
+      let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+      cartItems.splice(itemIndex, 1);
+      localStorage.setItem('cart', JSON.stringify(cartItems));
+      loadCartItems();
+    }
+
+    document.addEventListener('DOMContentLoaded', loadCartItems);
+  </script>
+</body>
+</html>
